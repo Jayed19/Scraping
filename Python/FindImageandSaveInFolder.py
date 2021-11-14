@@ -30,5 +30,16 @@ if os.path.exists("images"):
     pass
 else:
     os.mkdir('images')
-    
 
+all_images=driver.find_elements(By.XPATH,"//img[@src]")
+
+for img in all_images:
+    url=img.get_attribute('src')
+    print("URL= "+url)
+    filename=url.split("/")[-1]
+    print("FileName= "+filename)
+    
+    full_path=os.path.join('images',filename)
+    response=requests.get(url)
+    with open (full_path,"wb") as fh:
+        fh.write(response.content)
