@@ -16,11 +16,19 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
+opts=webdriver.ChromeOptions()
+opts.headless=False
 
-
-driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome(ChromeDriverManager().install(),options=opts)
 
 
 driver.get("https://www.banglanews24.com/")
 
 print(driver.title)
+
+if os.path.exists("images"):
+    pass
+else:
+    os.mkdir('images')
+    
+
