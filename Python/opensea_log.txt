@@ -6,3 +6,49 @@ Range You Selected = 2 To 4
 3 = Pending
 4 = Already Done
 End Time << 2021-11-15 17:46:40.838525
+
+
+Started Time >> 2021-11-16 00:36:17.599710
+Range You Selected = 2 To 10
+2 = Already Done
+3 = Already Done
+4 = Already Done
+5 = Already Done
+6 = Already Done
+7 = Already Done
+8 = Already Done
+9 = Already Done
+10 = Already Done
+End Time << 2021-11-16 00:37:28.410939
+
+
+Started Time >> 2021-11-16 00:41:42.875337
+Range You Selected = 1 To 3
+1 = Pending
+2 = Pending
+3 = Pending
+End Time << 2021-11-16 00:42:27.430482
+
+
+Started Time >> 2021-11-16 00:43:07.332400
+Range You Selected = 3 To 6
+3 = Pending
+4 = Already Done
+5 = Pending
+6 = Pending
+End Time << 2021-11-16 00:43:57.071690
+
+
+Started Time >> 2021-11-16 00:47:20.899939
+Range You Selected = 1 To 10
+1 = Pending
+2 = Pending
+3 = Pending
+4 = Already Done
+5 = Pending
+6 = Already Done
+7 = Pending
+8 = Already Done
+9 = Already Done
+10 = Already Done
+End Time << 2021-11-16 00:49:03.818263
