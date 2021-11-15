@@ -1,13 +1,8 @@
 import requests
-from bs4 import BeautifulSoup
 import os
-import pandas
 from requests import Session
-from bs4 import BeautifulSoup as bs
 from selenium import webdriver
-import getpass
 from selenium.webdriver.common.keys import Keys
-import pprint
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 from selenium.webdriver.common.action_chains import ActionChains
@@ -17,13 +12,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
 
+opts=webdriver.ChromeOptions()
+opts.headless=False
 
-
-driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome(ChromeDriverManager().install(),options=opts)
 driver.set_window_size(800, 700)
+driver.implicitly_wait(10)
 
 driver.get("https://opensea.io/collection/yeeolddoodles")
-
 
 
 
@@ -38,12 +34,15 @@ ignoringelement=driver.find_element(By.XPATH,ignorexpath)
 clickpath="//img[@class='Image--image']"
 clickelement=driver.find_element(By.XPATH,clickpath)
 
+'''
 x=1
 for x in range(50):
     
-        #
+
     x=x+1
     print("\ncount"+str(x))
+    
+    #Comment out done section
     
     time.sleep(.5)
     ignorexpath="//div[@class='AssetCardFooter--price']"
@@ -64,11 +63,52 @@ for x in range(50):
         time.sleep(3)
         driver.execute_script("arguments[0].click();", sellelement)
         time.sleep(15)
+ '''       
         
+import pandas
+df = pandas.DataFrame()
+saleList =[]
+skipList=[]
+x=1
+for x in range(100):
+    
+
+    x=x+1
+    print("\ncount"+str(x))
+    
+    #Comment out done section
     
     
-   
-    
+    ignorexpath="//div[@class='AssetCardFooter--price']"
+    anchorxpath="//a[@class='styles__StyledLink-sc-l6elh8-0 ekTmzq Asset--anchor']"
+    try:
+       
+        driver.find_element(By.XPATH,ignorexpath)
+        link=driver.find_element(By.XPATH,anchorxpath).get_attribute('href')
+        #WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,anchorxpath))).get_attribute("href")
+                                    
+        
+        
+        skipList.append(link)
+        print("Link = "+link)
+        driver.execute_script("window.scrollTo(0,window.scrollY + 522)")
+        time.sleep(1)
+    except NoSuchElementException:
+        
+        
+        link=driver.find_element(By.XPATH,anchorxpath).get_attribute('href')
+        #WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,anchorxpath))).get_attribute("href")
+        saleList.append(link)
+        print("Link = "+link)
+        driver.execute_script("window.scrollTo(0,window.scrollY + 522)")
+        time.sleep(1)
+
+df["Sale Link"]=pandas.Series(saleList)
+
+
+
+
+df.to_csv('test.csv', index=True)
 
 
 
