@@ -52,3 +52,31 @@ Range You Selected = 1 To 10
 9 = Already Done
 10 = Already Done
 End Time << 2021-11-16 00:49:03.818263
+
+
+Started Time >> 2021-11-16 01:06:33.537666
+Range You Selected = 5 To 9
+
+
+Started Time >> 2021-11-16 01:07:49.660458
+Range You Selected = 1 To 3
+
+
+Started Time >> 2021-11-16 01:08:26.621636
+Range You Selected = 1 To 3
+
+
+Started Time >> 2021-11-16 01:08:41.571031
+Range You Selected = 1 To 3
+
+
+Started Time >> 2021-11-16 01:09:56.262218
+Range You Selected = 1 To 3
+
+
+Started Time >> 2021-11-16 01:13:22.321598
+Range You Selected = 1 To 3
+
+
+Started Time >> 2021-11-16 01:14:20.590418
+Range You Selected = 1 To 3

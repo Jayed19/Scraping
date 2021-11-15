@@ -17,7 +17,7 @@ with open('opensea_log.txt', 'a') as fp:
     fp.write("\n")
     fp.write("Range You Selected = "+str(x)+" To "+str(y)+"\n")
 
-opensea_page=pyautogui.locateOnScreen('opensea.png')
+opensea_page=pyautogui.locateOnScreen(r'opensea.png')
 
 
 if opensea_page==None:
