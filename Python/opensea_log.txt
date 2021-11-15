@@ -1,48 +1,8 @@
-Started Time>>2021-11-15 15:27:38.579220
-5Already Done
-6Pending
-7Already Done
-End Time>>2021-11-15 15:28:09.939068
-Started Time>>2021-11-15 15:29:20.639087
-8 = Pending
-End Time<<2021-11-15 15:29:39.057936
-Started Time>>2021-11-15 15:31:54.315530
-Range You Selected = 1 To 5
+
+
+Started Time >> 2021-11-15 17:45:50.772247
+Range You Selected = 2 To 4
 2 = Pending
 3 = Pending
-4 = Pending
-5 = Already Done
-End Time<<2021-11-15 15:32:50.578171
-
-
-Started Time>>2021-11-15 15:33:52.858943
-Range You Selected = 7 To 11
-8 = Pending
-9 = Already Done
-10 = Already Done
-11 = Pending
-End Time<<2021-11-15 15:34:38.903579
-
-
-Started Time>>2021-11-15 15:35:24.551860
-Range You Selected = 2 To 4
-3 = Pending
-4 = Pending
-End Time<<2021-11-15 15:36:00.578492
-
-
-Started Time>>2021-11-15 15:37:16.981623
-Range You Selected = 3 To 5
-3 = Pending
 4 = Already Done
-End Time<<2021-11-15 15:37:41.810347
-
-
-Started Time>>2021-11-15 15:39:55.394607
-Range You Selected = 3 To 7
-3 = Pending
-4 = Already Done
-5 = Pending
-6 = Already Done
-7 = Pending
-End Time<<2021-11-15 15:41:00.154160
+End Time << 2021-11-15 17:46:40.838525

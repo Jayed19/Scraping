@@ -58,6 +58,9 @@ for i in range(x,y+1):
             fp.write("\n")
         
         print(str(x)+" >> Pending\n")
+        print("Going to Sell Page....\n")
+        driver.get("https://opensea.io/assets/matic/0x27947e2577c21f2f74df05ae8fc376648b203eb2/"+str(x)+"/Sell")
+        time.sleep(2)
         
     x=x+1
     
