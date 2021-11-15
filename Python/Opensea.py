@@ -64,7 +64,10 @@ for x in range(50):
         driver.execute_script("arguments[0].click();", sellelement)
         time.sleep(15)
  '''       
-        
+ 
+ # Doing with CSV and pandas
+
+'''  
 import pandas
 df = pandas.DataFrame()
 saleList =[]
@@ -110,5 +113,43 @@ df["Sale Link"]=pandas.Series(saleList)
 
 df.to_csv('test.csv', index=True)
 
+'''     
 
+# Writ in normal txt file
+
+x=1
+for x in range(10000):
+    
+
+    x=x+1
+    print("\ncount"+str(x))
+    
+    #Comment out done section
+    
+    
+    ignorexpath="//div[@class='AssetCardFooter--price']"
+    anchorxpath="//a[@class='styles__StyledLink-sc-l6elh8-0 ekTmzq Asset--anchor']"
+    try:
+       
+        driver.find_element(By.XPATH,ignorexpath)
+        link=driver.find_element(By.XPATH,anchorxpath).get_attribute('href')
+        #WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,anchorxpath))).get_attribute("href")
+                                    
+
+        print("Link = "+link)
+        driver.execute_script("window.scrollTo(0,window.scrollY + 522)")
+        time.sleep(1)
+    except NoSuchElementException:
+        
+        
+        link=driver.find_element(By.XPATH,anchorxpath).get_attribute('href')
+        #WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH,anchorxpath))).get_attribute("href")
+            
+        with open('link.txt', 'a') as fp:
+            fp.write(link)
+            fp.write("\n")
+      
+        print("Link = "+link)
+        driver.execute_script("window.scrollTo(0,window.scrollY + 522)")
+        time.sleep(1)
 
