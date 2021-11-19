@@ -23,7 +23,7 @@ opts=webdriver.ChromeOptions()
 opts.headless=False
 
 driver = webdriver.Chrome(ChromeDriverManager().install(),options=opts)
-driver.implicitly_wait(300)
+driver.set_page_load_timeout(300)
 
 start_time = datetime.now()
 driver.get("https://gl.ali213.net/z/58479/")
