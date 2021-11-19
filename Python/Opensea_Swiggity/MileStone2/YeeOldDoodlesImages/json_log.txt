@@ -3,3 +3,67 @@
 Started Time >> 2021-11-17 23:52:01.769973
 Range You Selected = 1 To 1
 End Time << 2021-11-17 23:52:29.980467
+
+
+Started Time >> 2021-11-19 12:14:09.375208
+Range You Selected = 1 To 2
+
+
+Started Time >> 2021-11-19 12:21:42.519572
+Range You Selected = 1 To 2
+
+
+Started Time >> 2021-11-19 12:23:29.927903
+Range You Selected = 1 To 3
+
+
+Started Time >> 2021-11-19 12:24:44.403063
+Range You Selected = 1 To 3
+
+
+Started Time >> 2021-11-19 12:25:41.299167
+Range You Selected = 1 To 3
+
+
+Started Time >> 2021-11-19 12:37:59.990818
+Range You Selected = 1 To 30
+
+
+Started Time >> 2021-11-19 12:38:51.342239
+Range You Selected = 1 To 3
+
+
+ Time>> 2021-11-19 12:40:32.244819
+Script stop in here = 4
+
+
+ Time>> 2021-11-19 12:40:32.271852
+You are in here = 4
+
+
+Started Time >> 2021-11-19 12:41:55.114879
+Range You Selected = 1 To 3
+
+
+ Time>> 2021-11-19 12:43:13.428908
+Script stop in here = 3
+
+
+ Time>> 2021-11-19 12:43:13.429913
+You are in here = 3
+
+
+ Time>> 2021-11-19 12:44:15.428323
+Script stop in here = 3
+
+
+ Time>> 2021-11-19 12:44:15.429327
+You are in here = 3
+
+
+Started Time >> 2021-11-19 13:05:36.773245
+Range You Selected = 1 To 3
+
+
+ Time>> 2021-11-19 13:06:47.488280
+Script stop in here = 1

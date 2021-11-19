@@ -27,43 +27,61 @@ if opensea_page==None:
 else:
     time.sleep(1)
     pyautogui.click('opensea.png')
-    time.sleep(t)
-    
-    for i in range(x,y+1):       
+    time.sleep(5)
+  
+     
+    for i in range(x,y):  
+            
         print(str(x)+" >> Going to create\n")
        
         pyautogui.keyDown('ctrl')
         pyautogui.press('l')
         pyautogui.keyUp('ctrl')
-        time.sleep(.5)
-        pyautogui.write('https://opensea.io/asset/create')
+        time.sleep(1)
+        pyautogui.write('https://opensea.io/asset/create',interval=0.05)
+        time.sleep(1)
         pyautogui.press('enter')
-        time.sleep(t)
         
-        pyautogui.press('tab',4)
+        # wait for page load start
+        
+        load=None
+        l=0
+        while (load==None) and l<t:
+            load=pyautogui.locateOnScreen('load.png')
+            print("Still haven't load create page..\n")
+            time.sleep(1)
+            l=l+1
+            
+        #wait for page load start end
+            
+ 
+        time.sleep(2)
+        pyautogui.press('tab',4,interval=.25)
         time.sleep(.5)
-        pyautogui.press('tab',5)
+        pyautogui.press('tab',5,interval=.25)
         time.sleep(.5)
         pyautogui.press('enter')
         time.sleep(1)
         
         time.sleep(2)
-        pyautogui.write(str(x)+'.png')
+        pyautogui.write(str(i)+'.png')
         time.sleep(.5)
         pyautogui.press('enter')
         time.sleep(1)
         
         # Now go to the name texbox with tab click
-        pyautogui.press('tab', 2)
+        pyautogui.press('tab', 2,interval=.25)
         name=data[x-1]['name']
+        time.sleep(1)
         pyautogui.write(name)
         print(name)
         time.sleep(1)
         
         
         # Now go to the description text box [may be two times tab click require]
-        pyautogui.press('tab',3)
+        pyautogui.press('tab',3,interval=.25)
         description=data[x-1]['description']
+        time.sleep(1)
         pyautogui.write(description)
         time.sleep(1)
         
@@ -86,7 +104,7 @@ else:
         time.sleep(.5)
         pyautogui.press('tab')
         time.sleep(.5)
-        pyautogui.press('enter', 7)
+        pyautogui.press('enter', 7, interval=.25)
         time.sleep(1)
         pyautogui.press('tab')
         time.sleep(.5)
@@ -119,7 +137,36 @@ else:
         pyautogui.press('tab', 16)
         time.sleep(1)
         pyautogui.press('enter')
-        time.sleep(5)
-        x=x+1
+        time.sleep(1)
+        
+        
+        #Last screen verified
+        last_screen=None
+        s=0
+        while (last_screen==None) and s<t:
+            last_screen=pyautogui.locateOnScreen('last_screen.png')
+            print("Still haven't get success page for Doodles# " +str(x))
+            time.sleep(1)
+            s=s+1
+        
+        print("x="+str(x))
+        if last_screen==None:  #stop script
+            
+            print("script stop due to success page not found")
+            now = datetime.now()
+            with open('json_log.txt', 'a') as fp:
+                fp.write("\n\n Time>> "+str(now))
+                fp.write("\n")
+                fp.write("Script stop in here = "+str(x)+"\n")
+            break
+            
+        else: #continue script
+            x=x+1
+            
+        now = datetime.now()
+        with open('json_log.txt', 'a') as fp:
+            fp.write("\n\n Time>> "+str(now))
+            fp.write("\n")
+            fp.write("You are in here = "+str(x)+"\n")
         
  
