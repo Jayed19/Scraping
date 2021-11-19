@@ -1,6 +1,6 @@
 from datetime import datetime
 import os
-
+import requests
 import keyboard
 import pyautogui
 import time
@@ -36,15 +36,32 @@ for line in lines:
         print("Line # "+str(count)+" "+str(line)+"\n")
         driver.get(line)
         time.sleep(1)
+        foldername=str(line).split("/")[-1]
+        foldername=foldername.rsplit('.', 1)[0]
+        if os.path.exists(foldername):
+            pass
+        else:
+            os.mkdir(foldername)
+            
         title=driver.find_element(By.XPATH,"//span[@class='big']")
         title=title.text
         
         print("Title = "+title)
         
         images=driver.find_elements(By.XPATH,"//div[@class='c-detail glzjshow_con']//img[@src]")
+
         for image in images:
             url=image.get_attribute('src')
             print("Image Link= "+url)
+            filename=url.split("/")[-1]
+            full_path=os.path.join(foldername,filename)
+            response=requests.get(url)
+            with open (full_path,"wb") as fh:
+                fh.write(response.content)
+            
+
+            
+            
             
         
         with open('2GameListLink_Log.txt', 'a', encoding="utf-8") as fp:
