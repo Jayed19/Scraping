@@ -1,0 +1,16 @@
+
+
+Started Time >> 2021-11-19 18:34:19.250796
+Range You Selected = 1 To 2
+
+Duration: 0:00:53.329550End Time << 2021-11-19 18:35:14.611548
+
+
+Started Time >> 2021-11-19 18:37:32.190571
+Range You Selected = 1 To 2
+
+
+Started Time >> 2021-11-19 18:51:33.560576
+Range You Selected = 1 To 3
+
+Duration: 0:04:49.779614
