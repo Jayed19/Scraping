@@ -35,10 +35,25 @@ for line in lines:
     if count>=x and count<=y:
         print("Line # "+str(count)+" "+str(line)+"\n")
         driver.get(line)
-        with open('2GameListLink_Log.txt', 'a') as fp:
+        time.sleep(1)
+        title=driver.find_element(By.XPATH,"//span[@class='big']")
+        title=title.text
+        
+        print("Title = "+title)
+        
+        images=driver.find_elements(By.XPATH,"//div[@class='c-detail glzjshow_con']//img[@src]")
+        for image in images:
+            url=image.get_attribute('src')
+            print("Image Link= "+url)
+            
+        
+        with open('2GameListLink_Log.txt', 'a', encoding="utf-8") as fp:
             fp.write("Line # "+str(count)+" "+str(line)+"\n")
+            fp.write("Title = " + title)
+            
+            # For reading time title.read().decode('utf8')
     else:
-        print(str(count)+"Not in range")
+        pass
         
 time.sleep(10)   
 

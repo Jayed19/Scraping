@@ -16,3 +16,51 @@ Range You Selected = 2 To 5
 
 
 *********** End Time << 2021-11-19 23:15:09.945923 ***************
+
+********** Started Time >> 2021-11-19 23:31:15.571432 ****************
+Range You Selected = 1 To 1
+Line # 1 https://gl.ali213.net/html/2021-11/731849.html
+
+
+*********** End Time << 2021-11-19 23:31:42.835193 ***************
+
+********** Started Time >> 2021-11-19 23:42:30.028361 ****************
+Range You Selected = 1 To 1
+
+
+********** Started Time >> 2021-11-19 23:44:56.043901 ****************
+Range You Selected = 1 To 1
+
+
+********** Started Time >> 2021-11-19 23:45:45.953070 ****************
+Range You Selected = 1 To 1
+
+
+********** Started Time >> 2021-11-19 23:46:43.333281 ****************
+Range You Selected = 1 To 1
+Line # 1 https://gl.ali213.net/html/2021-11/731849.html
+
+
+
+********** Started Time >> 2021-11-19 23:52:14.173018 ****************
+Range You Selected = 1 To 1
+
+
+********** Started Time >> 2021-11-19 23:55:29.238202 ****************
+Range You Selected = 1 To 1
+Line # 1 https://gl.ali213.net/html/2021-11/731849.html
+
+
+
+********** Started Time >> 2021-11-19 23:56:32.982423 ****************
+Range You Selected = 1 To 1
+Line # 1 https://gl.ali213.net/html/2021-11/731849.html
+
+Title = 
+
+********** Started Time >> 2021-11-19 23:58:27.144722 ****************
+Range You Selected = 1 To 1
+Line # 1 https://gl.ali213.net/html/2021-11/731849.html
+
+Title = 《GTA三部曲重制版》RC玩具货车怎么完成？RC玩具货车地图点位分享
+*********** End Time << 2021-11-19 23:58:49.647364 ***************
