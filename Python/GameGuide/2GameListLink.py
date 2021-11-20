@@ -7,6 +7,7 @@ import time
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+import json
 
 
 x=int(input("Enter Starting Serial of the loop: "))
@@ -29,6 +30,20 @@ driver.set_page_load_timeout(300)
 file1 = open('allhref.txt', 'r')
 lines = file1.readlines()
 
+
+
+element_dict = {}
+
+
+def add_entry(title, category, metadata,url,path):
+
+        element_dict["title"] = title
+        element_dict["category"] = category
+        element_dict["metadata"] = metadata
+        element_dict["url"] = url
+        element_dict["path"] = path
+        return element_dict
+
 count=0
 for line in lines:
     count=count+1
@@ -43,10 +58,18 @@ for line in lines:
         else:
             os.mkdir(foldername)
             
+        # Scrap Title
         title=driver.find_element(By.XPATH,"//span[@class='big']")
         title=title.text
-        
         print("Title = "+title)
+        
+        # Scrap Category
+        category=title[title.index('《')+len('》'):title.index('》')]
+        print("Category = "+category)
+        
+        #Scrap Metadata
+        article=driver.find_element(By.XPATH,"//div[@class='c-detail glzjshow_con']").text
+        print("articale = "+ article)
         
         images=driver.find_elements(By.XPATH,"//div[@class='c-detail glzjshow_con']//img[@src]")
 
