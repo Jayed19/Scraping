@@ -31,18 +31,24 @@ file1 = open('allhref.txt', 'r')
 lines = file1.readlines()
 
 
+res = []
+seen=set()
 
-element_dict = {}
 
-
-def add_entry(title, category, metadata,url,path):
-
-        element_dict["title"] = title
-        element_dict["category"] = category
-        element_dict["metadata"] = metadata
-        element_dict["url"] = url
-        element_dict["path"] = path
-        return element_dict
+def add_entry(res,id,title, category, metadata,url,path):
+    #check if exist in seen set
+    if (id,title,category,metadata,url,path) in seen:
+        return res
+    
+    #add to seen set
+    seen.add(tuple([id,title,category,metadata,url,path]))
+    
+    # append to result list
+    res.append({'id':id,'title':title,'category':category,'metadata':metadata,'url':url,'path':path})
+    return res
+   
+        
+       
 
 count=0
 for line in lines:
@@ -71,8 +77,19 @@ for line in lines:
         article=driver.find_element(By.XPATH,"//div[@class='c-detail glzjshow_con']").text
         print("articale = "+ article)
         
+        
+        id=count
+        url=line.strip()
+        path=foldername
+        metadata=article
+        
+
+        
+
+        
         images=driver.find_elements(By.XPATH,"//div[@class='c-detail glzjshow_con']//img[@src]")
 
+        
         for image in images:
             url=image.get_attribute('src')
             print("Image Link= "+url)
@@ -81,11 +98,16 @@ for line in lines:
             response=requests.get(url)
             with open (full_path,"wb") as fh:
                 fh.write(response.content)
-            
+
 
             
             
-            
+        args=[id,title,category,metadata,url,path]
+        
+        res=add_entry(res,*args)   
+        
+  
+       
         
         with open('2GameListLink_Log.txt', 'a', encoding="utf-8") as fp:
             fp.write("Line # "+str(count)+" "+str(line)+"\n")
@@ -97,6 +119,14 @@ for line in lines:
         
 time.sleep(10)   
 
+def write_to_json(lst, fn):
+    with open(fn, 'a', encoding='utf-8') as file:
+        for item in lst:
+            x = json.dumps(item, indent=4, ensure_ascii=False)
+            file.write(x + '\n')
+
+#export to JSON
+write_to_json(res, 'gamelist.json')
 
 now = datetime.now()
 with open('2GameListLink_Log.txt', 'a') as fp:
