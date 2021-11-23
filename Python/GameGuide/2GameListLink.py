@@ -56,7 +56,7 @@ for line in lines:
     if count>=x and count<=y:
         print("Line # "+str(count)+" "+str(line)+"\n")
         driver.get(line)
-        time.sleep(1)
+        time.sleep(3)
         foldername=str(line).split("/")[-1]
         foldername=foldername.rsplit('.', 1)[0]
         if os.path.exists(foldername):

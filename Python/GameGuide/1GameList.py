@@ -32,6 +32,7 @@ print('Duration: {}'.format(end_time - start_time))
 with open('1gamelist_log.txt', 'a') as fp:
     fp.write('\nDuration: {}'.format(end_time - start_time))
 
+time.sleep(10)
 
 lists=driver.find_elements(By.XPATH,"//div[@class='glzj_infob_rnew clearFloat']//a[contains(@href,'')]")
 
@@ -45,7 +46,7 @@ for list in lists:
         fp.write("\n"+str(i)+" = "+list.get_attribute("href"))
         
 
-            
+    time.sleep(.1)        
     with open('allhref.txt', 'a') as fp:
         fp.write(list.get_attribute("href")+"\n")
     i=i+1
