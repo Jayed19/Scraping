@@ -9,7 +9,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import json
 from selenium.webdriver.common.keys import Keys
-from googletrans import Translator
+
 
 url=str(input("Enter URL: "))
 
@@ -69,21 +69,63 @@ for image in images:
     with open (full_path,"wb") as fh:
         fh.write(response.content)
 
-    time.sleep(2)
+    time.sleep(1)
+driver.close()
    
+time.sleep(2)
 
-driver.find_element(By.TAG_NAME,'body').send_keys(Keys.COMMAND + 't')  
+#Translation Start
+
+#pip install pip install googletrans==3.1.0a0
+from googletrans import Translator
+translator = Translator()
+
+#Translate Cetegory
+chinese_traditional=translator.translate(category, dest='zh-tw')
+category=chinese_traditional.text
+print("Category Traditional= " + category)
+
+#Translate Title
+chinese_traditional=translator.translate(title, dest='zh-tw')
+title=chinese_traditional.text
+print("Title Traditional= " + title)
+
+#Translate article
+chinese_traditional=translator.translate(article, dest='zh-tw')
+article=chinese_traditional.text
+print("article Traditional= " + article)
+
+#Translate metadata
+chinese_traditional=translator.translate(metadata, dest='zh-tw')
+metadata=chinese_traditional.text
+print("metadata Traditional= " + metadata)
+
+
+#Transalation By Browsing
+'''
+driver = webdriver.Chrome(ChromeDriverManager().install(),options=opts)
+driver.set_page_load_timeout(300)
+
 time.sleep(2)
 Translator_text="https://translate.google.com/?sl=zh-CN&tl=zh-TW&text="+category+"&op=translate"    
 driver.get(Translator_text)
-
+time.sleep(3)
+print("Category in Chinese Lang: "+ category)
 category = driver.find_element_by_xpath('/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[2]/c-wiz[2]/div[5]/div/div[1]').text
-print(category)
+print("Category in Traditional Language " + category)
 
-time.sleep(2)
+time.sleep(5)
+'''
+
+opts=webdriver.ChromeOptions()
+opts.headless=False
+
+driver = webdriver.Chrome(ChromeDriverManager().install(),options=opts)
+driver.set_page_load_timeout(300)
 
 
-
+driver.get(url)
+time.sleep(5)
     
         
  
