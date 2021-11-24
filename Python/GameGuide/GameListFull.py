@@ -47,10 +47,24 @@ print("Title = "+title)
         # Scrap Category
 category=title[title.index('《')+len('》'):title.index('》')]
 print("Category = "+category)
+
+# Fix Issue Title remove category with bracket
+removal_text='《'+category+'》'
+title=title.replace(removal_text, "", 1)
+print("Issue Fix Title="+title)
         
         #Scrap article
 article=driver.find_element(By.XPATH,"//div[@class='c-detail glzjshow_con']").text
 print("articale = "+ article)
+#Fix issue on articles
+removal_articles=driver.find_element(By.XPATH,"//p//span[@class='n_show_g']").text
+print("articles remove part = "+removal_articles)
+removal_articles2=driver.find_element(By.XPATH,"//a[@class='morezjjump']").text
+print("articles remove part2 = "+removal_articles2)
+
+article = "".join(article.rsplit(removal_articles, 1))
+article = "".join(article.rsplit(removal_articles2, 1))
+print("Article Issue Fix= "+article)
 
 #Metadata
 metadata=article.replace(category, "", 1)
@@ -74,7 +88,9 @@ driver.close()
    
 time.sleep(2)
 
-#Translation Start
+
+
+#Translation Start using googletrans package
 
 #pip install pip install googletrans==3.1.0a0
 from googletrans import Translator
@@ -117,6 +133,7 @@ print("Category in Traditional Language " + category)
 time.sleep(5)
 '''
 
+#WordPress Login and Post Page
 opts=webdriver.ChromeOptions()
 opts.headless=False
 
@@ -124,8 +141,30 @@ driver = webdriver.Chrome(ChromeDriverManager().install(),options=opts)
 driver.set_page_load_timeout(300)
 
 
-driver.get(url)
-time.sleep(5)
+driver.get("https://gameguide.best/wp-admin")
+time.sleep(3)
+user=driver.find_element(By.ID,'user_login')
+user.send_keys("test1234")
+password=driver.find_element(By.ID,'user_pass')
+password.send_keys("6pC0dL)VV#vhm$HBzUr4eHu1")
+
+time.sleep(1)
+password=driver.find_element(By.ID,'wp-submit')
+password.click()
+time.sleep(6)
+
+driver.get("https://gameguide.best/wp-admin/post-new.php")
+time.sleep(6)
+
+driver.find_element(By.NAME,'post_title').send_keys(title)
+time.sleep(1)
+
+
+#driver.find_element(By.XPATH,"//div[@class='sc-hOGjNT sc-gUQueJ sc-gJbFMZ ghXohb eSdaFP bSTeTo yst-replacevar__editor']").send_keys(metadata)
+time.sleep(3)
+
+
+
     
         
  

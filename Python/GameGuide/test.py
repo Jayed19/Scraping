@@ -1,6 +1,7 @@
-#pip install pip install googletrans==3.1.0a0
-from googletrans import Translator
-translator = Translator()
+fullstring="This is jayed. You are jayed"
+remov="jayed"
 
-test=translator.translate('안녕하세요.', dest='ja')
-print(test.text)
+
+
+result = "".join(fullstring.rsplit(remov, 1))
+print(result)
