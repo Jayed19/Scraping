@@ -9,7 +9,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import json
 from selenium.webdriver.common.keys import Keys
-
+from selenium.webdriver.common.action_chains import ActionChains
 
 url=str(input("Enter URL: "))
 
@@ -25,7 +25,7 @@ opts=webdriver.ChromeOptions()
 opts.headless=False
 
 driver = webdriver.Chrome(ChromeDriverManager().install(),options=opts)
-driver.set_page_load_timeout(300)
+driver.set_page_load_timeout(600)
 
 
 driver.get(url)
@@ -84,7 +84,6 @@ for image in images:
         fh.write(response.content)
 
     time.sleep(1)
-driver.close()
    
 time.sleep(2)
 
@@ -134,13 +133,7 @@ time.sleep(5)
 '''
 
 #WordPress Login and Post Page
-opts=webdriver.ChromeOptions()
-opts.headless=False
-
-driver = webdriver.Chrome(ChromeDriverManager().install(),options=opts)
-driver.set_page_load_timeout(300)
-
-
+time.sleep(1)
 driver.get("https://gameguide.best/wp-admin")
 time.sleep(3)
 user=driver.find_element(By.ID,'user_login')
@@ -149,19 +142,86 @@ password=driver.find_element(By.ID,'user_pass')
 password.send_keys("6pC0dL)VV#vhm$HBzUr4eHu1")
 
 time.sleep(1)
-password=driver.find_element(By.ID,'wp-submit')
-password.click()
+login=driver.find_element(By.ID,'wp-submit')
+login.click()
 time.sleep(6)
 
 driver.get("https://gameguide.best/wp-admin/post-new.php")
 time.sleep(6)
 
 driver.find_element(By.NAME,'post_title').send_keys(title)
-time.sleep(1)
+time.sleep(2)
 
+# Browse images
+button=driver.find_element(By.ID,"insert-media-button")
+button.click()
+time.sleep(4)
 
-#driver.find_element(By.XPATH,"//div[@class='sc-hOGjNT sc-gUQueJ sc-gJbFMZ ghXohb eSdaFP bSTeTo yst-replacevar__editor']").send_keys(metadata)
+uploadmenu=driver.find_element(By.ID,'menu-item-upload')
+ActionChains(driver).move_to_element(uploadmenu).click(uploadmenu).perform()
 time.sleep(3)
+
+
+select=driver.find_element(By.ID,'__wp-uploader-id-1')
+ActionChains(driver).move_to_element(select).click(select).perform()
+
+time.sleep(4)
+pyautogui.write(os.getcwd())
+time.sleep(1)
+pyautogui.press('enter')
+time.sleep(2)
+pyautogui.write(foldername)
+time.sleep(2)
+pyautogui.press('enter')
+time.sleep(2)
+pyautogui.keyDown('shift')
+pyautogui.press('tab') 
+pyautogui.keyUp('shift')
+time.sleep(1)
+pyautogui.keyDown('ctrl')
+pyautogui.press('a') 
+pyautogui.keyUp('ctrl')
+time.sleep(2)
+pyautogui.press('enter')
+time.sleep(12)
+
+addtopost=driver.find_element(By.XPATH,"//button[@class='button media-button button-primary button-large media-button-insert']")
+ActionChains(driver).move_to_element(addtopost).click(addtopost).perform()
+time.sleep(10)
+
+#Select iFrame
+element = driver.find_element(By.ID,'content_ifr')
+
+#Switch to iFrame
+driver.switch_to.frame(element)
+
+#Query document for the ID that you're looking for
+queryElement = driver.find_element(By.ID,'tinymce')
+
+#Send key to the ID
+queryElement.send_keys(article)
+
+#Switch back to default content from iFrame
+driver.switch_to.default_content()
+
+time.sleep(3)
+
+
+element3=driver.find_element(By.ID,"category-add-toggle")
+b=ActionChains(driver).move_to_element(element3).click(element3).perform()
+time.sleep(2)
+driver.switch_to.active_element.send_keys(category)
+
+time.sleep(3)
+
+
+#driver.execute_script("arguments[0].scrollIntoView();", driver.find_element_by_css_selector(.your_css_selector))
+element2=driver.find_element(By.XPATH,"//div[@class='sc-hOGjNT sc-gUQueJ sc-gJbFMZ ghXohb eSdaFP bSTeTo yst-replacevar__editor']")
+a=ActionChains(driver).move_to_element(element2).click(element2).perform()
+time.sleep(2)
+driver.switch_to.active_element.send_keys(metadata)
+time.sleep(20)
+
 
 
 
