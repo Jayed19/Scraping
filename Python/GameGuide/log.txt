@@ -1,0 +1,21 @@
+
+********** Started Time 2021-11-26 15:33:16.324233 ****************
+Duration For Loading Main Page: 0:00:48.337641
+End Time of Collecting All URLS>> 2021-11-26 15:34:43.076296
+Starting URL: https://gl.ali213.net/html/2021-11/737023.html
+
+Got the Starting Line Number# 1
+********** Started Time 2021-11-26 15:37:17.558872 ****************
+Duration For Loading Main Page: 0:00:15.334284
+End Time of Collecting All URLS>> 2021-11-26 15:38:19.238032
+Starting URL: https://gl.ali213.net/html/2021-11/732079.html
+
+Got the Starting Line Number# 1
+********** Started Time 2021-11-26 15:40:04.630103 ****************
+Duration For Loading Main Page: 0:00:18.291731
+End Time of Collecting All URLS>> 2021-11-26 15:40:44.286912
+Starting URL: https://gl.ali213.net/html/2021-11/734261.html
+
+Got the Starting Line Number# 1
+Continue Line # 1
+URLhttps://gl.ali213.net/html/2021-11/734261.html

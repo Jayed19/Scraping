@@ -66,8 +66,10 @@ if mode==0:
 
     time.sleep(10)
 
-    lists=driver.find_elements(By.XPATH,"//div[@class='glzj_infob_rnew clearFloat']//a[contains(@href,'')]")
-
+    #lists=driver.find_elements(By.XPATH,"//div[@class='glzj_infob_rnew clearFloat']//a[contains(@href,'')]")
+    # Fix Issue for different type pages
+    lists=driver.find_elements(By.XPATH,"//div[@class='glzj_infob_rnew_onel']/a[@href]")
+    
     if os.path.exists("allhref.txt"):
         os.remove("allhref.txt")
     i=1
